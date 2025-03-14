@@ -1,10 +1,9 @@
 import type { Game } from "@/types/game.type";
-import type { GameCardProps } from "../types/types";
 
 import { toast } from "sonner";
 import { useCartStore } from "@/stores/cart-store";
 
-export const useGameCard = ({}: GameCardProps) => {
+export const useGameCard = () => {
     const { addToCart, cartHasGame, removeFromCart } = useCartStore(
         (state) => state
     );

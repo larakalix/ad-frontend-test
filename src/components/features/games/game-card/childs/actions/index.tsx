@@ -4,9 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useGameCard } from "../../hooks/use-game-card";
 
 export const GameCardActions = ({ game }: GameCardProps) => {
-    const { cartHasGame, handleAddGame, handleRemove } = useGameCard({
-        game,
-    });
+    const { cartHasGame, handleAddGame, handleRemove } = useGameCard();
     const itemExists = cartHasGame(game.id) ?? false;
 
     return (

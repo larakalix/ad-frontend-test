@@ -4,13 +4,13 @@ import Image from "next/image";
 
 export const CartGameCardThumbnail = ({ game }: GameCardProps) => {
     return (
-        <figure className="w-64 overflow-hidden">
+        <figure className="min-w-64 min-h-40 overflow-hidden">
             <Image
                 src={game.image}
                 alt={game.name}
                 width={256}
                 height={156}
-                className="object-cover"
+                className="block w-64 h-40 object-cover"
                 loading="lazy"
             />
         </figure>

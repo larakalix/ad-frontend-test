@@ -7,15 +7,21 @@ export const CartGrid = () => {
     const { games } = useCartGrid();
 
     return (
-        <div className="col-span-1 lg:col-span-2">
-            <header>
-                <h2>Your cart</h2>
-                <span>{games.length} items</span>
+        <>
+            <header className="text-foreground flex flex-col gap-y-3 col-span-1 lg:col-span-3">
+                <h2 className="text-4xl font-bold">Your cart</h2>
+                <span className="text-2xl font-normal">
+                    {games.length} items
+                </span>
             </header>
 
-            {games.map((game) => (
-                <CartGameCard key={game.id} game={game} />
-            ))}
-        </div>
+            <div className="col-span-1 lg:col-span-2 flex flex-col gap-12">
+                <div>
+                    {games.map((game) => (
+                        <CartGameCard key={game.id} game={game} />
+                    ))}
+                </div>
+            </div>
+        </>
     );
 };

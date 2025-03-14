@@ -8,7 +8,7 @@ export const Header = () => {
         <ContentBox outerClassName="bg-light-gray-1 px-6 py-5">
             <>
                 <Link href={ROUTES.home}>
-                    <span className="text-2xl font-bold text-dark-gray-1">
+                    <span className="text-2xl font-bold text-dark-gray-1 tracking-[0.4px]">
                         GamerShop
                     </span>
                 </Link>
