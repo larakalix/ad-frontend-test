@@ -1,7 +1,19 @@
-export default async function Home() {
-  return (
-    <main className='flex min-h-screen flex-col items-center justify-between p-24 font-bold text-4xl text-blue-600'>
-      Hello, world!
-    </main>
-  )
+import type { GameProps } from "@/services/games/types";
+
+import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
+import { getQueryInstance } from "@/utils/query-client";
+import { gameQueryConfig } from "@/services/games/query-config";
+import { GamesGrid } from "@/components/features/games/grid";
+
+export default async function Home({ genre = "" }: GameProps) {
+    const client = getQueryInstance({
+        staleTimeMinutes: 10,
+    });
+    await client.prefetchQuery(gameQueryConfig({ genre }));
+
+    return (
+        <HydrationBoundary state={dehydrate(client)}>
+            <GamesGrid genre={genre} />
+        </HydrationBoundary>
+    );
 }
