@@ -9,7 +9,8 @@ const button = tv({
         color: {
             primary:
                 "bg-white text-foreground border border-foreground hover:bg-light-gray-1",
-            secondary: "bg-dark-gray-1 text-white border border-foreground hover:bg-dark-gray-2",
+            secondary:
+                "bg-dark-gray-1 text-white border border-foreground hover:bg-dark-gray-2",
         },
         size: {
             sm: "text-sm",
@@ -30,7 +31,7 @@ const button = tv({
 });
 
 type ButtonProps = PropsWithChildren<
-    ComponentProps<typeof button> & {
+    ComponentProps<"button"> & {
         size: "sm" | "md" | "lg";
         color: "primary" | "secondary";
         width?: "full" | "auto" | "fit";

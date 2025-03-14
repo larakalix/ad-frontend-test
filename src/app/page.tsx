@@ -5,7 +5,11 @@ import { getQueryInstance } from "@/utils/query-client";
 import { gameQueryConfig } from "@/services/games/query-config";
 import { GamesGrid } from "@/components/features/games/grid";
 
-export default async function Home({ genre = "" }: GameProps) {
+export default async function Home({
+    searchParams: { genre = "" },
+}: {
+    searchParams: GameProps;
+}) {
     const client = getQueryInstance({
         staleTimeMinutes: 10,
     });

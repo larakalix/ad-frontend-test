@@ -1,13 +1,15 @@
-import type { Game } from "@/types/game.type";
+"use client";
+
+import type { GameCardProps } from "./types/types";
+
 import Image from "next/image";
 import { formatPrice } from "@/utils/utils";
 import { Button } from "@/components/ui/button";
+import { useGameCard } from "./hooks/use-game-card";
 
-type Props = {
-    game: Game;
-};
+export const GameCard = ({ game }: GameCardProps) => {
+    const { handleAddGame } = useGameCard({ game });
 
-export const GameCard = ({ game }: Props) => {
     return (
         <div className="p-6 border border-card rounded-xl flex flex-col gap-y-5">
             <figure className="overflow-hidden rounded-t-lg max-h-60">
@@ -35,7 +37,13 @@ export const GameCard = ({ game }: Props) => {
             </div>
 
             <footer>
-                <Button color="primary" size="md" className="uppercase">
+                <Button
+                    color="primary"
+                    size="md"
+                    className="uppercase"
+                    type="button"
+                    onClick={() => handleAddGame(game)}
+                >
                     Add to cart
                 </Button>
             </footer>
