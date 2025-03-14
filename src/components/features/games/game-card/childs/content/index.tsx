@@ -10,8 +10,8 @@ export const GameCardContent = ({ game }: GameCardProps) => {
             </span>
 
             <div className="flex justify-between items-center text-foreground">
-                <h2 className="text-lg font-bold tracking-[0.4px]">{game.name}</h2>
-                <p className="text-xl font-bold tracking-[0.4px]">{formatPrice(game.price)}</p>
+                <h2 className="text-lg font-bold tracking-1">{game.name}</h2>
+                <p className="text-xl font-bold tracking-1">{formatPrice(game.price)}</p>
             </div>
         </div>
     );

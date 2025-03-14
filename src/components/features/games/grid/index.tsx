@@ -6,12 +6,11 @@ import { GameCard } from "../game-card";
 import { GameProps } from "@/services/games/types";
 import { useGamesGrid } from "./hooks/use-games-grid";
 import { Button } from "@/components/ui/button";
-import { GameFilters } from "../filters/game-filters";
 
 type Props = GameProps;
 
 export const GamesGrid = ({ genre }: Props) => {
-    const { games, availableFilters, error } = useGamesGrid({ genre });
+    const { games, error } = useGamesGrid({ genre });
 
     return (
         <section className="w-full flex flex-col gap-y-12">

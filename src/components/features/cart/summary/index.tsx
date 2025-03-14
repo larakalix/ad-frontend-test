@@ -23,7 +23,7 @@ export const CartSummary = () => {
                     {games.map((game) => (
                         <li
                             key={game.id}
-                            className="flex justify-between items-center text-lg font-normal text-foreground pb-[14.5px] tracking-[0.4px]"
+                            className="flex justify-between items-center text-lg font-normal text-foreground pb-[14.5px] tracking-1"
                         >
                             <span>{game.name}</span>
                             <span>{formatPrice(game.price)}</span>

@@ -1,4 +1,4 @@
-import { GameFilters } from "@/components/features/games/filters/game-filters";
+import { GameFilters } from "@/components/features/games/filters";
 import { GamesGrid } from "@/components/features/games/grid";
 import type { GameProps } from "@/services/games/types";
 
