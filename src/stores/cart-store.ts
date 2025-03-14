@@ -6,7 +6,8 @@ import { persist, createJSONStorage } from "zustand/middleware";
 export type CartStoreState = {
     games: Game[];
     addToCart: (game: Game) => void;
-    removeFromCart: (game: Game) => void;
+    removeFromCart: (id: Game["id"]) => void;
+    cartHasGame: (id: Game["id"]) => boolean;
     clearCart: VoidFunction;
 };
 
@@ -14,17 +15,19 @@ export const useCartStore = create<CartStoreState>()(
     persist(
         (set, get) => ({
             games: [],
-            addToCart: (game) => () => {
-                const { games } = get();
-                console.log("STATE => addToCart", games);
-                set({ games: [...games, game] });
+            addToCart: (game: Game) => {
+                set((state) => ({ games: [...state.games, game] }));
             },
-            removeFromCart: (game) => () => {
-                const { games } = get();
-                set({ games: games.filter((g) => g.id !== game.id) });
+            removeFromCart: (id) => {
+                set((state) => ({
+                    games: state.games.filter((g) => g.id !== id),
+                }));
             },
-            clearCart: () => () => {
+            clearCart: () => {
                 set({ games: [] });
+            },
+            cartHasGame: (id: Game["id"]) => {
+                return get().games.some((game) => game.id === id);
             },
         }),
         {

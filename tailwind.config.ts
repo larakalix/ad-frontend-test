@@ -15,6 +15,7 @@ const config: Config = {
             },
             colors: {
                 card: "#8F8F8F",
+                "light-border-1": "#EFEDF3",
                 subtitle: "#737373",
                 foreground: "#3B3B3B",
                 "dark-gray-1": "#585660",

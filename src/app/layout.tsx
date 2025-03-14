@@ -30,7 +30,10 @@ export default function RootLayout({
 
                     <Header />
 
-                    <ContentBox outerClassName="px-6 py-12 flex flex-1 m-auto w-full">
+                    <ContentBox
+                        outerClassName="px-6 py-12 flex-1 m-auto w-full"
+                        innerClassName="flex-col"
+                    >
                         {children}
                     </ContentBox>
 

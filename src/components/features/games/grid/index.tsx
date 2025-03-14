@@ -6,6 +6,7 @@ import { GameCard } from "../game-card";
 import { GameProps } from "@/services/games/types";
 import { useGamesGrid } from "./hooks/use-games-grid";
 import { Button } from "@/components/ui/button";
+import { GameFilters } from "../filters/game-filters";
 
 type Props = GameProps;
 
