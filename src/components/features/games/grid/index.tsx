@@ -9,7 +9,10 @@ import { Button } from "@/components/ui/button";
 import { Spinner } from "@/components/ui/spinner";
 
 export const GamesGrid = ({ genre }: GameProps) => {
-    const { games, isLoading } = useGamesGrid({ genre });
+    const { disableSeeMoreButton, games, isLoading, handleSeeMore } =
+        useGamesGrid({
+            genre,
+        });
 
     if (isLoading) {
         return (
@@ -39,6 +42,8 @@ export const GamesGrid = ({ genre }: GameProps) => {
                     size="md"
                     width="auto"
                     className="uppercase"
+                    disabled={disableSeeMoreButton}
+                    onClick={handleSeeMore}
                 >
                     See more
                 </Button>

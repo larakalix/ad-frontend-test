@@ -11,7 +11,7 @@ export const GameCardThumbnail = ({ className, game }: Props) => {
     return (
         <figure
             className={cn(
-                "overflow-hidden rounded-t-lg max-h-60 relative",
+                "overflow-hidden rounded-t-2xl max-h-60 relative",
                 className
             )}
         >

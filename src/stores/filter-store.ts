@@ -4,6 +4,6 @@ export type FilterStoreState = {
     filters: string[];
 };
 
-export const useFilterStore = create<FilterStoreState>()((set) => ({
+export const useFilterStore = create<FilterStoreState>()(() => ({
     filters: [],
 }));

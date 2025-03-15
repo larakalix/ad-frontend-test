@@ -7,10 +7,14 @@ import { globalEnv } from "@/utils/env-config";
 
 export const getGames = async ({
     genre,
+    page = 1,
 }: GameProps): Promise<ApiResponse<GameData | null>> => {
     try {
         const response = await fetch(
-            `${globalEnv.ApiUrl}games?${new URLSearchParams({ genre })}`
+            `${globalEnv.ApiUrl}games?${new URLSearchParams({
+                genre,
+                page: `${page}`,
+            })}`
         );
         const data = await response.json();
         const { games, availableFilters } = data;

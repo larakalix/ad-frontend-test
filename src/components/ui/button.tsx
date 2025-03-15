@@ -4,7 +4,7 @@ import { tv } from "tailwind-variants";
 import { cn } from "@/utils/utils";
 
 const button = tv({
-    base: "px-6 py-5 text-base rounded-lg font-bold  transition-colors tracking-[0.5px]",
+    base: "px-6 py-5 text-base rounded-lg font-bold  transition-colors tracking-[0.5px] disabled:opacity-50",
     variants: {
         color: {
             primary:
