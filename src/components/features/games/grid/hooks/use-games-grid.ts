@@ -5,11 +5,14 @@ import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { gameQueryConfig } from "@/services/games/query-config";
 import { useFilterStore } from "@/stores/filter-store";
+import { useGamesStore } from "@/stores/games-store";
 
 const PRODUCTS_PER_PAGE = 12;
 
 export const useGamesGrid = ({ genre, page }: GameProps) => {
     const [currentPage, setCurrentPage] = useState(() => page ?? 1);
+    const { catalogue, setGames } = useGamesStore((state) => state);
+
     const { data, error, isLoading, isRefetching } = useQuery(
         gameQueryConfig({ genre, page: currentPage })
     );
@@ -35,11 +38,21 @@ export const useGamesGrid = ({ genre, page }: GameProps) => {
         useFilterStore.setState({ filters: availableFilters });
     }, [availableFilters]);
 
+    useEffect(() => {
+        if (games.length === 0) return;
+
+        setGames([...catalogue, ...games]);
+    }, [games]);
+
+    useEffect(() => {
+        setGames(games);
+    }, [genre]);
+
     return {
         availableFilters,
         disableSeeMoreButton,
         error,
-        games,
+        catalogue,
         isLoading,
         handleSeeMore,
     };
