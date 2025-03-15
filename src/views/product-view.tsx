@@ -2,12 +2,10 @@ import { GameFilters } from "@/components/features/games/filters";
 import { GamesGrid } from "@/components/features/games/grid";
 import type { GameProps } from "@/services/games/types";
 
-type Props = GameProps;
-
-export const ProductView = ({ genre }: Props) => {
+export const ProductView = ({ genre }: GameProps) => {
     return (
         <>
-            <GameFilters />
+            <GameFilters genre={genre} />
 
             <GamesGrid genre={genre} />
         </>

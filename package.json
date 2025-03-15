@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource-variable/archivo": "^5.2.5",
     "@tanstack/react-query": "^5.68.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.481.0",

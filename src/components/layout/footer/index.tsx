@@ -4,7 +4,10 @@ import { ROUTES } from "@/constants/route-constants";
 
 export const Footer = () => {
     return (
-        <ContentBox outerClassName="bg-dark-gray-2 text-center px-6 py-16">
+        <ContentBox
+            outerClassName="bg-dark-gray-2 text-center px-6 py-16"
+            innerClassName="flex justify-center"
+        >
             <Link href={ROUTES.home}>
                 <svg
                     fill="none"

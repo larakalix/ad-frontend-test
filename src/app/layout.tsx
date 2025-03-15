@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
 
-import { Archivo } from "next/font/google";
 import { Toaster } from "sonner";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { cn } from "@/utils/utils";
-
-import "./globals.css";
 import { ContentBox } from "@/components/layout/common/content-box";
 import { QueryProvider } from "@/providers/query-provider";
 
-const font = Archivo({ subsets: ["latin"] });
+import "@fontsource-variable/archivo";
+import "./globals.css";
 
 export const metadata: Metadata = {
     title: "Apply Digital Test",
@@ -25,7 +23,7 @@ export default function RootLayout({
     return (
         <QueryProvider>
             <html lang="en">
-                <body className={cn(font.className, "flex flex-col h-screen")}>
+                <body className={cn("flex flex-col h-screen")}>
                     <Toaster richColors />
 
                     <Header />

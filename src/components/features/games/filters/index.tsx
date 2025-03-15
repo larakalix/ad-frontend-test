@@ -1,9 +1,11 @@
 "use client";
 
+import type { GameProps } from "@/services/games/types";
+
 import { useGameFilter } from "./hooks/use-game-filter";
 
-export const GameFilters = () => {
-    const { filters, handleChange } = useGameFilter();
+export const GameFilters = ({ genre = "" }: GameProps) => {
+    const { filters, handleChange } = useGameFilter({ genre });
 
     return (
         <header className="py-12 border-b border-light-border-1 w-full">
@@ -15,13 +17,15 @@ export const GameFilters = () => {
                 <span className="text-foreground font-bold text-xl mr-6 px-6 border-r border-card tracking-1">
                     Genre
                 </span>
+
                 <select
                     name="filter"
-                    onChange={(e) => handleChange(e.target.value)}
+                    defaultValue={genre}
+                    onChange={(e) => handleChange(e.target.value.toLowerCase())}
                 >
                     <option value="">All</option>
                     {filters.map((filter) => (
-                        <option key={filter} value={filter}>
+                        <option key={filter.toLowerCase()} value={filter}>
                             {filter}
                         </option>
                     ))}

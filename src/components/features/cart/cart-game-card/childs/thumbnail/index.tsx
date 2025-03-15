@@ -1,10 +1,26 @@
+import type { ComponentProps } from "react";
 import type { GameCardProps } from "@/components/features/games/game-card/types/types";
 
 import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/utils/utils";
 
-export const CartGameCardThumbnail = ({ game }: GameCardProps) => {
+type Props = ComponentProps<"figure"> & GameCardProps;
+
+export const CartGameCardThumbnail = ({ className, game }: Props) => {
     return (
-        <figure className="min-w-64 min-h-40 overflow-hidden">
+        <figure
+            className={cn(
+                "overflow-hidden min-w-64 min-h-40 relative",
+                className
+            )}
+        >
+            {game.isNew && (
+                <Badge color="primary" className="absolute top-3 left-3">
+                    New
+                </Badge>
+            )}
+
             <Image
                 src={game.image}
                 alt={game.name}

@@ -6,11 +6,18 @@ import { GameCard } from "../game-card";
 import { GameProps } from "@/services/games/types";
 import { useGamesGrid } from "./hooks/use-games-grid";
 import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
 
-type Props = GameProps;
+export const GamesGrid = ({ genre }: GameProps) => {
+    const { games, isLoading } = useGamesGrid({ genre });
 
-export const GamesGrid = ({ genre }: Props) => {
-    const { games, error } = useGamesGrid({ genre });
+    if (isLoading) {
+        return (
+            <div className="h-96 flex justify-center items-center">
+                <Spinner />
+            </div>
+        );
+    }
 
     return (
         <section className="w-full flex flex-col gap-y-12">

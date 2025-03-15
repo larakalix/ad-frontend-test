@@ -21,6 +21,7 @@ const config: Config = {
                 "dark-gray-1": "#585660",
                 "dark-gray-2": "#404040",
                 "light-gray-1": "#EEEEEE",
+                "light-gray-2": "#F5F5F4",
             },
             letterSpacing: {
                 "1": "0.4px",

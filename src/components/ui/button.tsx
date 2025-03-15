@@ -32,7 +32,7 @@ const button = tv({
     },
 });
 
-type ButtonProps = PropsWithChildren<
+export type ButtonProps = PropsWithChildren<
     ComponentProps<"button"> & {
         size: "sm" | "md" | "lg";
         color: "primary" | "secondary" | "ghost" | "red";

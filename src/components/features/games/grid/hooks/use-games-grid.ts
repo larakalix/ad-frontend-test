@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { useFilterStore } from "@/stores/filter-store";
 
 export const useGamesGrid = ({ genre }: GameProps) => {
-    const { data, error } = useQuery(gameQueryConfig({ genre }));
+    const { data, isLoading, error } = useQuery(gameQueryConfig({ genre }));
     const { games, availableFilters } = (data?.data ?? {
         games: [],
         availableFilters: [],
@@ -17,5 +17,5 @@ export const useGamesGrid = ({ genre }: GameProps) => {
         useFilterStore.setState({ filters: availableFilters });
     }, [availableFilters]);
 
-    return { games, availableFilters, error };
+    return { games, availableFilters, isLoading, error };
 };
