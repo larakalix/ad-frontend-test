@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import type { GameProps } from "@/services/games/types";
 import type { GameData } from "@/types/game.type";
 

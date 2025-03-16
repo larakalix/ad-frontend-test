@@ -9,11 +9,6 @@ export async function GET(request: Request) {
 
     let games = allGames;
 
-    console.log("API", {
-        genre,
-        page,
-    });
-
     if (genre) {
         games = games.filter(
             (game) => game.genre.toLowerCase() === genre.toLowerCase()
