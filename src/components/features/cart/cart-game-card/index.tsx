@@ -6,7 +6,10 @@ import { CartGameCardThumbnail } from "./childs/thumbnail";
 
 export const CartGameCard = ({ game }: GameCardProps) => {
     return (
-        <div className="px-4 py-5 border-b border-card/50 flex items-center justify- gap-6">
+        <div
+            data-cy="cart-game-card"
+            className="px-4 py-5 border-b border-card/50 flex items-center justify- gap-6"
+        >
             <CartGameCardThumbnail game={game} />
 
             <div className="flex flex-col gap-y-2 w-full">

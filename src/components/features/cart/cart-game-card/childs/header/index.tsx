@@ -8,12 +8,16 @@ export const CartGameCardHeader = ({ game }: GameCardProps) => {
     const { handleRemove } = useGameCard();
 
     return (
-        <header className="w-full flex justify-between items-center pb-0">
+        <header
+            data-cy="cartgame-actions"
+            className="w-full flex justify-between items-center pb-0"
+        >
             <span className="block text-subtitle uppercase text-base font-bold tracking-normal">
                 {game.genre}
             </span>
 
             <Button
+                data-cy="remove-from-cart"
                 color="ghost"
                 size="sm"
                 width="auto"

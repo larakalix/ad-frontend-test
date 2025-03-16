@@ -22,6 +22,7 @@ export const GameCardThumbnail = ({ className, game }: Props) => {
             )}
 
             <Image
+                data-cy="game-image"
                 className="w-full aspect-3/2 object-cover"
                 src={game.image}
                 alt={game.name}

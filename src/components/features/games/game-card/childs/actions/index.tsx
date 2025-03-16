@@ -8,9 +8,10 @@ export const GameCardActions = ({ game }: GameCardProps) => {
     const itemExists = cartHasGame(game.id) ?? false;
 
     return (
-        <footer>
+        <footer data-cy="game-actions">
             {itemExists ? (
                 <Button
+                    data-cy="remove-from-cart"
                     color="red"
                     size="md"
                     className="uppercase"
@@ -21,6 +22,7 @@ export const GameCardActions = ({ game }: GameCardProps) => {
                 </Button>
             ) : (
                 <Button
+                    data-cy="add-to-cart"
                     color="primary"
                     size="md"
                     className="uppercase"

@@ -22,6 +22,7 @@ export const CartGameCardThumbnail = ({ className, game }: Props) => {
             )}
 
             <Image
+                data-cy="cart-game-image"
                 src={game.image}
                 alt={game.name}
                 width={256}
